@@ -1,0 +1,225 @@
+@import 'vars.scss';
+@import 'reset.scss';
+@import 'mixins.scss';
+$padding: 15px;
+
+.content {
+    max-width: 990px;
+    margin: 0 auto;
+    padding: $padding*2;
+
+    &--controls {
+        padding-top: $padding;
+        padding-bottom: $padding;
+    }
+    &--menu {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+.grid {
+    display:flex;
+    margin: 0 (-$padding);
+    flex-wrap: wrap;
+
+    &__cell {
+        width: 300px;
+        flex-grow: 1;
+        padding: 0 $padding;
+        display: flex;
+    }
+}
+
+.block-news {
+    border: 1px solid grey;
+    position: relative;
+    margin: 0 0 $padding*2 0;
+    flex-grow: 1;
+
+    &__image {
+        height: 200px;
+        background-position: center;
+        background-size: cover;
+        margin: 0 0 $padding 0;
+    }
+    &__caption {
+        padding: 0 $padding;
+        font-size: 20px;
+        margin: 0 0 $padding 0;
+    }
+    &__preview {
+        padding: 0 $padding;
+        margin: 0 0 $padding 0;
+    }
+    &__data {
+        padding: 0 $padding;
+        color: #666;
+        margin: 0 0 $padding 0;
+    }
+    &__tags {
+        position: absolute;
+        top: $padding;
+        right: $padding;
+        font-size: 0;
+
+    }
+    &__tag-item {
+        background-color: rgb(75, 73, 73);
+        color: #fff;
+        border-radius: 5px;
+        display: inline-block;
+        padding: 2px 5px;
+        margin: 0 0 5px 5px;
+        font-size: 12px;
+    }
+    &__remove {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgb(79, 79, 82);
+        color: wheat;
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+        border-radius: 0 0 50% 0;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        text-align: center;
+
+        &:hover {
+            background-color: red;
+        }
+    }
+    &__like {
+        float: right;
+        padding: 0 $padding;
+        color: #ccc;
+        transition-duration: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            color: black;
+            transform: scale(1.4);
+        }
+        &--active {
+            color: red;
+        }
+    }
+}
+
+.news-control {
+    background-color: rgb(173, 169, 169);
+    text-align: right;
+    padding: 20px;
+}
+.btn {
+    height: 30px;
+    padding: 0 20px;
+    background-color: indigo;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition-duration: 0.3s;
+    outline: none;
+
+    &:hover {
+        background-color: rgb(50, 9, 80);
+    }
+
+    &--new {
+        float: left;
+        background-color: rgb(15, 172, 15);
+
+        &:hover {
+            background-color: rgb(8, 112, 8);
+        }
+    }
+
+    
+}
+input[type="text"] {
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid rgb(110, 108, 108);
+    height: 30px;
+    padding: 0 $padding;
+    width: 100%;
+    box-sizing: border-box;
+}
+textarea {
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding: 5px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 100px;
+    resize: vertical;
+
+}
+
+.filter {
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(90, 88, 88, 0.856);
+    overflow: auto;
+    transition-duration: 0.3s;
+    padding: $padding;
+
+    &__item {
+        margin: 0 0 $padding 0;
+    }
+
+    &--hidden {
+        transform: translateX(-250px);
+    }
+}
+.menu {
+    background-color: rgb(61, 61, 182);  
+    
+    &__list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+    }
+
+    &__item {
+        padding: $padding;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+    }
+    &:hover,
+    &--active {
+        background-color: rgba(0, 0, 0, 0.486);
+    }
+}   
+
+.modal-add-news {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    z-index: 20;
+    background-color: #fff;
+    width: 300px;
+    transform: translateX(-50%);
+    padding: $padding*2;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    box-shadow: 0 0 30px rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    display: none;
+
+    &__element {
+        margin: 0 0 $padding 0;
+    }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta name="vievport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="css/main.css" />
+    <script src="https://kit.fontawesome.com/ed5bf6f175.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <nav class="menu">
+        <div class="content content--menu">
+            <ul class="menu__list">
+                <li><a class="menu__item menu__item--active js-menu-item" href="#"
+                        onclick="togglePages('news', this)">News</a></li>
+                <li><a class="menu__item js-menu-item" href="#" onclick="togglePages('about-us', this)">About us</a>
+                </li>
+                <li><a class="menu__item js-menu-item" href="#" onclick="togglePages('contacts', this)">Contacts</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="js-content-news">
+        <div class="news-control">
+            <button class="btn btn--new" onclick="addNews()">Add news</button>
+            <button class="btn" onclick="sort('asc')">New top</button>
+            <button class="btn" onclick="sort('desc')">New bottom</button>
+            <button class="btn js-filter-toggle" onclick="filterToggle()"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="content content--controls">
+            <div class="grid" id="data"></div>
+        </div>
+    </div>
+
+    <!-- MAdal -->
+    <div class="modal-add-news js-modal-add-news">
+        <form onsubmit="sendData(this); return false;">
+            <div class="modal-add-news__element">
+                <input type="text" name="title" placeholder="Enter name">
+            </div>
+            <div class="modal-add-news__element">
+                <textarea name="preview" placeholder="Enter description"></textarea>
+            </div>
+            <div class="modal-add-news__element">
+                <input type="text" name="image" placeholder="Enter URL">
+            </div>
+            <div class="modal-add-news__element">
+                <input type="text" name="tags" placeholder="Enter tags">
+            </div>
+            <div class="modal-add-news__buton">
+                <button class="btn">Create</button>
+                <button class="btn" onclick="btnCancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="filter filter--hidden js-filter">
+        <div class="filter__item">
+            <input class="pole-vvoda" type="text" name="search" placeholder="Enter tag" onkeyup="searchByTag(this)">
+        </div>
+    </div>
+
+
+    <div class="js-content-about-us" style="display: none;">
+        <div class="content">
+            <h2>About us</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ratione, aut nemo dolorum consectetur sed
+            quam fugiat ex, minima odit dignissimos inventore doloribus modi rem veritatis non error quidem! Ab.
+            Sed voluptatem repellat velit rerum explicabo consequatur porro perferendis incidunt in temporibus officiis
+            eaque quibusdam adipisci, non neque, ratione facilis cupiditate. Asperiores quis veniam beatae ad deleniti
+            architecto eligendi aliquam!
+            Quia, reiciendis. Accusantium, rerum? Possimus repellat, vero necessitatibus mollitia et rem! Doloremque cum
+            ad laudantium natus necessitatibus praesentium nulla modi quasi placeat corporis inventore qui, sapiente, ea
+            suscipit quae maxime!
+        </div>
+    </div>
+    <div class="js-content-contacts" style="display: none;">
+        <div class="content">
+            <h2>About us</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ratione, aut nemo dolorum consectetur sed
+            quam fugiat ex, minima odit dignissimos inventore doloribus modi rem veritatis non error quidem! Ab.
+            Sed voluptatem repellat velit rerum explicabo consequatur porro perferendis incidunt in temporibus officiis
+            eaque quibusdam adipisci, non neque, ratione facilis cupiditate. Asperiores quis veniam beatae ad deleniti
+            architecto eligendi aliquam!
+            Quia, reiciendis. Accusantium, rerum? Possimus repellat, vero necessitatibus mollitia et rem! Doloremque cum
+            ad laudantium natus necessitatibus praesentium nulla modi quasi placeat corporis inventore qui, sapiente, ea
+            suscipit quae maxime!
+        </div>
+    </div>
+
+    <script src="js/moment.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
